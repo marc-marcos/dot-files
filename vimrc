@@ -17,7 +17,7 @@ highligh ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
 
-    Plug 'morhetz/gruvbox'
+    Plug 'dracula/vim',{'as':'dracula'}
     Plug 'jremmen/vim-ripgrep'
     Plug 'mhinz/vim-startify'
     Plug 'vim-utils/vim-man'
@@ -30,7 +30,12 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end() 
 
-colorscheme gruvbox
+let g:dracula_italic = 0
+if (has("termguicolors"))
+   set termguicolors
+endif
+colorscheme dracula
+
 set background=dark
 
 if executable('rg')
@@ -54,6 +59,8 @@ nnoremap <leader>pv :wincmd v <bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <leader>ps :Rg<SPACE>
 nnoremap <silent><leader>+ :vertical resize +5<CR>
 nnoremap <silent><leader>- :vertical resize -5<CR>
+
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
 set completeopt-=preview
 
