@@ -1,8 +1,12 @@
 # dot-files
 
 ## vimrc
+### Prerequisites
+- curl
 ### Installation
-```sh
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
+chmod +x installVim.sh
+./installVim.sh
+```
+
+This script has been tested only in Ubuntu, availability in other distros may be limited.
