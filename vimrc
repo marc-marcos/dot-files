@@ -11,6 +11,7 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
+set scrolloff=1
 
 set colorcolumn=80
 highligh ColorColumn ctermbg=0 guibg=lightgrey
@@ -18,17 +19,36 @@ highligh ColorColumn ctermbg=0 guibg=lightgrey
 call plug#begin('~/.vim/plugged')
 
     Plug 'dracula/vim',{'as':'dracula'}
-    Plug 'jremmen/vim-ripgrep'
     Plug 'mhinz/vim-startify'
-    Plug 'vim-utils/vim-man'
+    Plug 'ycm-core/YouCompleteMe'
     Plug 'https://github.com/kien/ctrlp.vim.git' 
-    Plug 'https://github.com/ycm-core/YouCompleteMe.git'
     Plug 'lyuts/vim-rtags'
     Plug 'mbbill/undotree'
     Plug 'chun-yang/auto-pairs'
     Plug 'itchyny/lightline.vim'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    Plug 'ervandew/supertab'
+    Plug 'tpope/vim-surround'
+
+    let extension = expand('%:e')
+
+    if( extension == "cpp" || extension == "cc" || extension == "h" || extension == "hpp" )
+    Plug 'ycm-core/YouCompleteMe'
+    else
+    Plug 'zxqfl/tabnine-vim'
+    endif
 
 call plug#end() 
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:dracula_italic = 0
 if (has("termguicolors"))
@@ -52,7 +72,8 @@ let g:ctrlp_use_caching = 0
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>q :wincmd q<CR>
 nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k <CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>w :wincmd w<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :wincmd v <bar> :Ex <bar> :vertical resize 30<CR>
