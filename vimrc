@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'honza/vim-snippets'
     Plug 'ervandew/supertab'
     Plug 'tpope/vim-surround'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
     let extension = expand('%:e')
 

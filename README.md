@@ -27,6 +27,13 @@ cd ~/.vim/plugged/YouCompleteMe
 When entering Vim you might be asked to restart the Ycm server. Do that by typing the command: ``:YcmServerRestart``.
 Enjoy your customized version of vim.
 
+### Vim usage
+- `space + pv` Shows project tree 
+- `space + u` Shows undo tree
+- `:MarkdownPreview` Starts markdown live preview
+- `:MarkdownPreviewStop` Stops the live preview
+- `F9` Runs the file (if it's a Python file)
+
 <hr>
 
 This script has been tested only in Ubuntu, availability in other distros may be limited.
